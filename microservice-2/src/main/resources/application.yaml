@@ -1,0 +1,24 @@
+api:
+  key: ${microservice2-APIKEY}
+
+# Configuracion de endpoints de actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+rabbitmq:
+  queue:
+    name: ${microservice2-AMQPQUEUENAME}
+
+spring:
+  application:
+    name: microservice-2
+  data:
+    mongodb:
+      uri: ${microservice2-DBURI}
+
+server:
+  port:  ${microservice2-PORT}

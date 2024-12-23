@@ -1,0 +1,41 @@
+api:
+  key: ${microservice1-APIKEY}
+
+# Habilitación de endpoints de actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+rabbitmq:
+  queue:
+    name: ${microservice1-AMQPQUEUENAME}
+  exchange:
+    name: ${microservice1-AMQPEXCHANGENAME}
+  routing:
+    key: ${microservice1-AMQPROUTINGKEY}
+
+
+server:
+  port: ${microservice1-PORT}
+
+spring:
+  application:
+    name: microservice-1
+  datasource:
+    url: ${microservice1-DBURL}
+    username: ${microservice1-DBUSER}
+    password: ${microservice1-DBPASSWORD}
+    hikari:
+      maximum-pool-size: 10
+      max-lifetime: 100000
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  rabbitmq:
+    host: ${microservice1-AMQPHOST}
+    port: ${microservice1-AMQPPORT}
+    username: ${microservice1-AMQPUSER}
+    password: ${microservice1-AMQPPASSWORD}
